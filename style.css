@@ -1,5 +1,5 @@
-.cont{
+.cont {
     background-color: rgb(255, 255, 255);
-    border-color: black;
-    border: 2px ;
-    margin-bottom: 20px;}
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
