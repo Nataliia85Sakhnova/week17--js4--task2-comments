@@ -12,17 +12,31 @@
 <body style="background-color: rgb(213, 251, 188);">
 
     <div>
-        <h2>Оставляем комментарии, не стесняемся!</h2>
+        <h1>Оставляем комментарии, не стесняемся!</h1>
 
         <div id="cont"></div>
 
-        <h3>Ваш комментарий:</h3>
-        <form id="form">
-            <input id="input" type="text">
+        <form id="form" class="form">
+            <div class="field">
+                <label for="name">Ваше имя:</label>
+                <input id="name" type="text">
+            </div>
+
+            <div class="field">
+                <label for="ava">Ваша аватарка:</label>
+                <input id="ava" type="text">
+            </div>
+
+            <div class="field">
+                <label for="comment">Ваш комментарий:</label>
+                <input id="comment" type="text">
+            </div>
+
+            <button id="button_send" style="background-color: rgb(59, 186, 120);">Send</button>
+
+            <div class="img"></div>
         </form>
 
-
-        <button id="button_send" style="background-color: rgb(59, 186, 120);">Send</button>
     </div>
 
     <script src="index.js"></script>

@@ -7,10 +7,22 @@
 
 
 checkSpam = () => {
+
+    const name = document.getElementById('name').value
+    console.log(name)
+
+
+    const ava = document.getElementById('ava').value
+    console.log(ava);
+    const img = document.createElement('div').classList.add("img");
+
+    // console.log(document.querySelector(".img").style.backgroundImage)
+    // block.style.backgroundImage = "url
+
     const reg = /viagra|XXX/gi; //заменить на "***" i - замены без учета регистра, g - заменить все совпадения
-    const comment = input.value.replace(reg, "***"); //готовый и проверенный комментарий
+    const comment = document.getElementById('comment').value.replace(reg, "***"); //готовый и проверенный комментарий
     const p = document.createElement("p");
-    p.appendChild(document.createTextNode(input.value));
+    p.appendChild(document.createTextNode(comment));
     p.classList.add("p");
     cont.appendChild(p); //создание div - подключение классов - внутрь добавляем содержание инпута;
 }

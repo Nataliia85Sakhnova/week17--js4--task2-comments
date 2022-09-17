@@ -2,4 +2,31 @@
     background-color: rgb(231, 239, 247);
     border: 1px solid rgb(8, 115, 246);
     margin-bottom: 20px;
-}   
+}
+
+.img {
+    background-image: url(https://klike.net/uploads/posts/2019-05/1556708032_1.jpg);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+.field {
+    clear: both;
+    text-align: right;
+    line-height: 25px;
+}
+
+label {
+    float: left;
+    padding-right: 10px;
+}
+
+.form {
+    float: left
+}
+
+button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
