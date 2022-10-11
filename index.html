@@ -14,9 +14,15 @@
     <div>
         <h1>Оставляем комментарии, не стесняемся!</h1>
 
-        <div id="cont"></div>
+        <div id="cont">
+            <!-- <div class="user">
+                <img src="https://thispersondoesnotexist.com/image" alt="avatar" class="img">
+                <p>Name</p>
+                <p>Comment</p>
+            </div> -->
+        </div>
 
-        <form id="form" class="form">
+        <form id="form" class="form" onsubmit="alert('submit!');return false">
             <div class="field">
                 <label for="name">Ваше имя:</label>
                 <input id="name" type="text">
@@ -34,7 +40,7 @@
 
             <button id="button_send" style="background-color: rgb(59, 186, 120);">Send</button>
 
-            <div class="img"></div>
+            <!-- <div class="img"></div> -->
         </form>
 
     </div>
