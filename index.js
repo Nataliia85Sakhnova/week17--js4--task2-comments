@@ -6,6 +6,18 @@
 // дать возможность пользователю сохранять свое имя и аватарку при вводе и запоминать их.
 // Аватарку задаем в виде ссылки на картинку в интернете. Работу с файлами тут использовать не нужно.*
 
+
+
+
+
+
+
+
+
+
+
+
+
 const new_comment = (name, url, comment) => {
     const comments_container = document.createElement("div"); //создали контейнер для комментария
     comments_container.classList.add("user"); //присвоили ему класс
@@ -16,17 +28,11 @@ const new_comment = (name, url, comment) => {
     img.src = url;
 
     const name_user = document.createElement("p");
-    name_user.textContent = "name_user.textContent";
+    // name_user.textContent = "name_user.textContent";
 
     const comment_user = document.createElement("p");
-    comment_user.textContent = "comment_user.textContent";
+    // comment_user.textContent = "comment_user.textContent";
 
-    // console.log(comments_container);
-    // console.log(img);
-    // console.log(name_user);
-    // console.log(comment_user);
-
-    // напишем функцию, чтоб кнтейнер всех удочерял, и пропишем вызов
     const adopt = (a) => {
         const child = comments_container.appendChild(a);
         console.log(child);
@@ -35,9 +41,20 @@ const new_comment = (name, url, comment) => {
     adopt(name_user);
     adopt(comment_user);
 
+    console.dir(comments_container);
+
 }
 
-new_comment('Diana', "https://thispersondoesnotexist.com/image", "текст из вызова функции");
+new_comment('Diana', "https://thispersondoesnotexist.com/image", "наконец-то правильно выводится");
+
+
+
+
+
+
+
+
+
 
 // добиться, что бы в консоль попадали все элементы с нужными значениями.
 // два выводятся правильно, осталось поле с именем и поле с комментарием.
