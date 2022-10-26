@@ -3,36 +3,52 @@
 // присваиваю им всем значения из полей ввода
 // пишу функцию, где контейнер удочеряет имя, аву и коммент
 
-const new_comment = (name, url, comment) => {
-    const comments_container = document.createElement("div");
-    comments_container.classList.add("user");
 
-    name = document.createElement("p");
-    name.textContent = document.getElementById("name").value;
+// задаем значение будущих аргументов:
+const name1 = document.getElementById("name").value;
+const url = document.getElementById("ava").value;
+const comment = document.getElementById("comment").value;
 
-    url = document.createElement("img");
-    url.textContent = "попку в топку";
-    // // как присвоить ему ссыль из поля ввода?   document.getElementById("ava").value;
-    // url.classList.add("img");
-    // url.alt = "avatar";
+const new_comment = (a, b, c) => {
+    //создаем контейнер:
+    const user_container = document.createElement("div");
+    user_container.classList.add("user");
 
-    comment = document.createElement("p");
-    comment.textContent = "шавка на лавке";
-    // document.getElementById("comment").value;
+    //создаем внутренние элементы:
+    name_container = document.createElement("p");
+    url_container = document.createElement("img");
+    comment_container = document.createElement("p");
+
+    //задаем всем стили:
+    url_container.classList.add("img");
+    url_container.alt = "avatar";
 
     const adopt = (a) => {
-        const child = comments_container.appendChild(a);
+        const child = user_container.appendChild(a);
         console.log(child);
     }
 
-    adopt(name);
-    adopt(url);
-    adopt(comment);
+    adopt(name_container);
+    adopt(url_container);
+    adopt(comment_container);
 
-    // console.dir(comments_container);
+    // console.dir(user_container);
+    return;
 }
 
-new_comment();
+new_comment(name1, url, comment);
+
+
+
+
+const adopt_arguments = (a, b) => {
+    // a удочеряет b;
+    return;
+}
+
+adopt_arguments(name_container, name1);
+adopt_arguments(url_container, url);
+adopt_arguments(comment_container, comment);
 
 
 // добиться, что бы в консоль попадали все элементы с нужными значениями.
@@ -41,13 +57,13 @@ new_comment();
 
 checkSpam = () => {
     const name = document.getElementById('name').value
-    console.log(name)
+    console.log(name);
     const checkSpam = () => {
 
         const name = document.getElementById('name').value;
-        const cont = document.getElementById('cont')
+        const cont = document.getElementById('cont');
 
-        const ava = document.getElementById('ava').value
+        const ava = document.getElementById('ava').value;
         console.log(ava);
         const img = document.createElement('div').classList.add("img");
 
