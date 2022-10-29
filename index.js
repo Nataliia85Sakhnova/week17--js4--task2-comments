@@ -4,76 +4,63 @@
 // пишу функцию, где контейнер удочеряет имя, аву и коммент
 
 
-// задаем значение будущих аргументов:
-const name1 = document.getElementById("name").value;
-const url = document.getElementById("ava").value;
-const comment = document.getElementById("comment").value;
 
-const new_comment = (a, b, c) => {
+
+
+// видео про сохранение данных в локальное хранилище
+// подумать как можно примерить это к задаче, которую мы делали вчера (отредактировано) 
+// В идеале составить план на русском
+
+
+
+
+// задаем значение будущих аргументов:
+const nameFromInput = document.getElementById("name");
+const urlFromInput = document.getElementById("ava");
+const commentFromInput = document.getElementById("comment");
+
+const containerHTML = document.getElementById("cont");
+
+const button = document.getElementById("button_send");
+
+const adopt = (element, container) => {
+    container.appendChild(element);
+}
+
+const new_comment = (name, url, comment) => {
     //создаем контейнер:
     const user_container = document.createElement("div");
     user_container.classList.add("user");
 
     //создаем внутренние элементы:
-    name_container = document.createElement("p");
-    url_container = document.createElement("img");
-    comment_container = document.createElement("p");
+    const name_container = document.createElement("p");
+    name_container.textContent = name;
+    const url_container = document.createElement("img");
+    url_container.src = url.value;
+    const comment_container = document.createElement("p");
+    comment_container.textContent = checkSpam(comment);
 
     //задаем всем стили:
     url_container.classList.add("img");
     url_container.alt = "avatar";
 
-    const adopt = (a) => {
-        const child = user_container.appendChild(a);
-        console.log(child);
-    }
+    adopt(name_container, user_container);
+    adopt(url_container, user_container);
+    adopt(comment_container, user_container);
 
-    adopt(name_container);
-    adopt(url_container);
-    adopt(comment_container);
-
-    // console.dir(user_container);
-    return;
+    return user_container;
 }
 
-new_comment(name1, url, comment);
-
-
-
-
-const adopt_arguments = (a, b) => {
-    // a удочеряет b;
-    return;
+checkSpam = (item) => {
+    const reg = /viagra|XXX/gi; //заменить на "***" i - замены без учета регистра, g - заменить все совпадения
+    const comment = item.replace(reg, "***"); //готовый и проверенный комментарий
+    return comment;
 }
 
-adopt_arguments(name_container, name1);
-adopt_arguments(url_container, url);
-adopt_arguments(comment_container, comment);
-
-
-// добиться, что бы в консоль попадали все элементы с нужными значениями.
-// два выводятся правильно, осталось поле с именем и поле с комментарием.
-// Задание на звездочку, удочерить все элементы родительскому comment_container
-
-checkSpam = () => {
-    const name = document.getElementById('name').value
-    console.log(name);
-    const checkSpam = () => {
-
-        const name = document.getElementById('name').value;
-        const cont = document.getElementById('cont');
-
-        const ava = document.getElementById('ava').value;
-        console.log(ava);
-        const img = document.createElement('div').classList.add("img");
-
-        const reg = /viagra|XXX/gi; //заменить на "***" i - замены без учета регистра, g - заменить все совпадения
-        const comment = document.getElementById('comment').value.replace(reg, "***"); //готовый и проверенный комментарий
-        const p = document.createElement("p");
-        button_send.addEventListener(`click`, checkSpam);
-    }
-}
-
+button.addEventListener("click", () => {
+    const mustGoOn = new_comment(nameFromInput.value, urlFromInput, commentFromInput.value);
+    adopt(mustGoOn, containerHTML)
+})
 
 
 
@@ -100,3 +87,8 @@ checkSpam = () => {
 // Доработать сохранение комментариев из прошлого домашнего задания через веб-хранилище,
 // дать возможность пользователю сохранять свое имя и аватарку при вводе и запоминать их.
 // Аватарку задаем в виде ссылки на картинку в интернете. Работу с файлами тут использовать не нужно.*
+
+
+// добиться, что бы в консоль попадали все элементы с нужными значениями.
+// два выводятся правильно, осталось поле с именем и поле с комментарием.
+// Задание на звездочку, удочерить все элементы родительскому comment_container
