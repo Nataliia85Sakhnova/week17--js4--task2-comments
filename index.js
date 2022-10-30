@@ -12,7 +12,12 @@
 // В идеале составить план на русском
 
 
-
+//проверяем знает ли уже система наше имя:
+document.addEventListener("DOMContentLoaded", function (event) {
+    if (localStorage.getItem("nameFromInput") != null) {
+        document.getElementById("name").value = nameFromInput;
+    }
+});
 
 // задаем значение будущих аргументов:
 const nameFromInput = document.getElementById("name");
@@ -40,6 +45,11 @@ const new_comment = (name, url, comment) => {
     const comment_container = document.createElement("p");
     comment_container.textContent = checkSpam(comment);
 
+    //проверяем локальное хранилище:
+    if (localStorage.getItem('name') == null) {
+        localStorage.setItem('name', nameFromInput)
+    }
+
     //задаем всем стили:
     url_container.classList.add("img");
     url_container.alt = "avatar";
@@ -59,7 +69,7 @@ checkSpam = (item) => {
 
 button.addEventListener("click", () => {
     const mustGoOn = new_comment(nameFromInput.value, urlFromInput, commentFromInput.value);
-    adopt(mustGoOn, containerHTML)
+    adopt(mustGoOn, containerHTML);
 })
 
 
