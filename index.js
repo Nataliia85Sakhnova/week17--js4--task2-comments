@@ -4,15 +4,12 @@
 // пишу функцию, где контейнер удочеряет имя, аву и коммент
 
 
-
-
-
 // видео про сохранение данных в локальное хранилище
 // подумать как можно примерить это к задаче, которую мы делали вчера (отредактировано) 
 // В идеале составить план на русском
 
 
-//проверяем знает ли уже система наше имя:
+// проверяем знает ли уже система наше имя:
 document.addEventListener("DOMContentLoaded", function (event) {
     if (localStorage.getItem("nameFromInput") != null) {
         document.getElementById("name").value = nameFromInput;
@@ -23,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 const nameFromInput = document.getElementById("name");
 const urlFromInput = document.getElementById("ava");
 const commentFromInput = document.getElementById("comment");
+
+if (localStorage.getItem('name') == null) {
+    localStorage.setItem('name', nameFromInput)
+}
+
 
 const containerHTML = document.getElementById("cont");
 
@@ -45,10 +47,7 @@ const new_comment = (name, url, comment) => {
     const comment_container = document.createElement("p");
     comment_container.textContent = checkSpam(comment);
 
-    //проверяем локальное хранилище:
-    if (localStorage.getItem('name') == null) {
-        localStorage.setItem('name', nameFromInput)
-    }
+
 
     //задаем всем стили:
     url_container.classList.add("img");
