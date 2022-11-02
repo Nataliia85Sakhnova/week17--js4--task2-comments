@@ -21,10 +21,10 @@ const nameFromInput = document.getElementById("name");
 const urlFromInput = document.getElementById("ava");
 const commentFromInput = document.getElementById("comment");
 
+// сохраняем имя в локальное хранилище
 if (localStorage.getItem('name') == null) {
     localStorage.setItem('name', nameFromInput)
 }
-
 
 const containerHTML = document.getElementById("cont");
 
