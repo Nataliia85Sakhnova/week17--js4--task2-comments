@@ -11,20 +11,22 @@
 
 // проверяем знает ли уже система наше имя:
 document.addEventListener("DOMContentLoaded", function (event) {
-    if (localStorage.getItem("nameFromInput") != null) {
-        document.getElementById("name").value = nameFromInput;
+    if (localStorage.getItem("name") != null) {
+        document.getElementById("name").value = localStorage.getItem("name");
+    }
+    if (localStorage.getItem("ava") != null) {
+        document.getElementById("ava").value = localStorage.getItem("ava");
     }
 });
+
+
 
 // задаем значение будущих аргументов:
 const nameFromInput = document.getElementById("name");
 const urlFromInput = document.getElementById("ava");
 const commentFromInput = document.getElementById("comment");
 
-// сохраняем имя в локальное хранилище
-if (localStorage.getItem('name') == null) {
-    localStorage.setItem('name', nameFromInput)
-}
+
 
 const containerHTML = document.getElementById("cont");
 
@@ -66,13 +68,19 @@ checkSpam = (item) => {
     return comment;
 }
 
-button.addEventListener("click", () => {
+document.getElementById("button_send_save").addEventListener("click", () => {
+    const mustGoOn = new_comment(nameFromInput.value, urlFromInput, commentFromInput.value);
+    adopt(mustGoOn, containerHTML);
+
+    // сохраняем имя в локальное хранилище:
+    localStorage.setItem('name', nameFromInput.value)
+    localStorage.setItem('ava', urlFromInput.value)
+})
+
+document.getElementById("button_send_nosave").addEventListener("click", () => {
     const mustGoOn = new_comment(nameFromInput.value, urlFromInput, commentFromInput.value);
     adopt(mustGoOn, containerHTML);
 })
-
-
-
 
 //создаем переменную аватарка:
 // const ava = document.getElementById('ava').value;
